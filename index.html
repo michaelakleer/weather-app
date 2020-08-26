@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="search-city">
+        <div class="row">
+          <div class="col-8">
+            <input
+              type="search"
+              placeholder="Search city..."
+              autofocus="on"
+              autocomplete="off"
+              id="city-name"
+              class="form-control"
+            />
+          </div>
+          <div class="col-3">
+            <input type="submit" class="btn btn-secondary" value="Search" />
+          </div>
+          <div class="col-1">
+            <button class="btn btn-info" id="current-location">
+              📍
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col">
+          <h1 id="city"></h1>
+          <h2 id="date"></h2>
+        </div>
+      </div>
+      <div class="row all-information">
+        <div class="col-1"></div>
+        <div class="col-sm-3">
+          <div class="moon">
+            ☁️
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="current-weather">
+            <span class="current-temp" id="current-temp"></span>
+            <span class="units">
+              <a href="#" class="celsius" id="celsius-link">°C</a>
+              |
+              <a href="#" class="farenheit" id="farenheit-link">°F</a>
+            </span>
+          </div>
+          <div class="feel-temp">
+            <p id="current-feel-temp"></p>
+          </div>
+          <span class="weather-description" id="weather-description"> </span>
+        </div>
+        <div class="col-sm-4">
+          <p>
+            <br />
+            <span id="humidity">
+              <br />
+              <br />
+            </span>
+            <span id="precipitation">
+              Precipitation: 45%
+              <br />
+            </span>
+            <span id="wind-speed"> </span>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm friday">
+          Friday
+          <br />
+          July 31
+          <br />
+          ☀️
+          <br />
+          33°C
+          <br />
+          <small>
+            27°C
+          </small>
+        </div>
+        <div class="col-sm saturday">
+          Saturday
+          <br />
+          August 1
+          <br />
+          ☀️
+          <br />
+          32°C
+          <br />
+          <small>
+            25°C
+          </small>
+        </div>
+        <div class="col-sm sunday">
+          Sunday
+          <br />
+          August 2
+          <br />
+          ☁️
+          <br />
+          26°C
+          <br />
+          <small>
+            22°C
+          </small>
+        </div>
+        <div class="col-sm monday">
+          Monday
+          <br />
+          August 3
+          <br />
+          ⛅️
+          <br />
+          24°C
+          <br />
+          <small>
+            20°C
+          </small>
+        </div>
+        <div class="col-sm tuesday">
+          Tuesday
+          <br />
+          August 4
+          <br />
+          ☀️
+          <br />
+          24°C
+          <br />
+          <small>
+            20°C
+          </small>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>

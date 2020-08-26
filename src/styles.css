@@ -1,0 +1,96 @@
+body {
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+form {
+  padding: 22px 40px;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+form,
+h1,
+h2,
+.all-information {
+  font-family: "Mulish", sans-serif;
+}
+
+h1 {
+  margin: 0px 30px;
+  font-size: 30px;
+}
+
+h2 {
+  margin: 4px 0 20px;
+  font-size: 20px;
+}
+
+.container {
+  border: 2px solid #838383;
+  border-radius: 4px;
+  display: block;
+  margin: 60px auto 0;
+  max-width: 45%;
+  background-image: linear-gradient(
+    to top,
+    #f3e7e9 0%,
+    #e3eeff 99%,
+    #e3eeff 100%
+  );
+}
+
+.search-city {
+  display: inline;
+  max-width: 65%;
+}
+
+.moon {
+  font-size: 50px;
+  margin: 25px 0 25px 30px;
+  padding-bottom: 10px;
+}
+
+.current-temp {
+  font-size: 35px;
+  margin: 0;
+}
+
+.units {
+  font-size: 14px;
+  position: relative;
+  top: -13px;
+}
+
+.feel-temp p {
+  margin-bottom: 5px;
+}
+
+.celsius,
+.farenheit {
+  color: #1b8496;
+}
+
+.celsius:active {
+  color: #000000;
+}
+
+.friday,
+.saturday,
+.sunday,
+.monday,
+.tuesday {
+  text-align: center;
+  padding: 0 15px 5px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.weather-description {
+  font-size: 15px;
+}
+
+.all-information {
+  text-align: center;
+}
