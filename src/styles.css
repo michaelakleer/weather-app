@@ -94,3 +94,9 @@ h2 {
 .all-information {
   text-align: center;
 }
+
+.open-source {
+  margin: 0 auto;
+  font-size: 12px;
+  text-align: center;
+}
