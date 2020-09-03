@@ -89,13 +89,17 @@ li:first-letter {
   top: -13px;
 }
 
-.feel-temp p {
-  margin-bottom: 5px;
+.units .active {
+  color: #000000;
+  cursor: default;
 }
 
-.celsius,
-.farenheit {
-  color: #1b8496;
+.units .active:hover {
+  text-decoration: none;
+}
+
+.feel-temp p {
+  margin-bottom: 5px;
 }
 
 .weather-info {
