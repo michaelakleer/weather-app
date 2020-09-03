@@ -32,6 +32,17 @@ h2 {
   font-size: 20px;
 }
 
+ul {
+  margin: 25px 0 auto;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   border: 2px solid #838383;
   border-radius: 4px;
@@ -45,6 +56,10 @@ h2 {
     #e3eeff 99%,
     #e3eeff 100%
   );
+}
+
+.all-information {
+  margin-bottom: 10px;
 }
 
 .search-city {
