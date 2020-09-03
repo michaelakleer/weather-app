@@ -33,7 +33,7 @@ h2 {
 }
 
 ul {
-  margin: 25px 0 auto;
+  margin: 10px 0 auto;
   padding: 0;
 }
 
@@ -63,7 +63,8 @@ li:first-letter {
 }
 
 .all-information {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .search-city {
@@ -97,8 +98,8 @@ li:first-letter {
   color: #1b8496;
 }
 
-.celsius:active {
-  color: #000000;
+.weather-info {
+  margin-top: 40px;
 }
 
 .friday,
@@ -113,10 +114,6 @@ li:first-letter {
 
 .weather-description {
   font-size: 15px;
-}
-
-.all-information {
-  text-align: center;
 }
 
 .open-source {
