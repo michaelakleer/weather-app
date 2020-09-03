@@ -48,7 +48,7 @@ function showTemperature(response) {
   feelTempElement.innerHTML = `Feels like ${feelLike}`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${windSpeed}km/h`;
-  descriptionElement.innerHTML = response.data.weather[0].main;
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function searchCity(city) {
