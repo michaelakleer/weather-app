@@ -33,20 +33,22 @@ function currentDate(date) {
 }
 
 function showTemperature(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  let feelTemp = Math.round(response.data.main.feels_like);
-  document.querySelector(
-    "#current-feel-temp"
-  ).innerHTML = `Feels like ${feelTemp}`;
+  let temperatureElement = document.querySelector("#current-temp");
+  let cityElement = document.querySelector("#city");
+  let feelLike = Math.round(response.data.main.feels_like);
+  let feelTempElement = document.querySelector("#current-feel-temp");
   let humidity = Math.round(response.data.main.humidity);
-  document.querySelector("#humidity").innerHTML = `Humidity: ${humidity}%`;
-  let wind = Math.round(response.data.wind.speed);
-  document.querySelector("#wind-speed").innerHTML = `Wind: ${wind}km/h`;
-  document.querySelector("#weather-description").innerHTML =
-    response.data.weather[0].main;
+  let humidityElement = document.querySelector("#humidity");
+  let windSpeed = Math.round(response.data.wind.speed);
+  let windElement = document.querySelector("#wind-speed");
+  let descriptionElement = document.querySelector("#weather-description");
+
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name;
+  feelTempElement.innerHTML = `Feels like ${feelLike}`;
+  humidityElement.innerHTML = `Humidity: ${humidity}%`;
+  windElement.innerHTML = `Wind: ${windSpeed}km/h`;
+  descriptionElement.innerHTML = response.data.weather[0].main;
 }
 
 function searchCity(city) {
