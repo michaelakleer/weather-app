@@ -35,7 +35,6 @@ function currentDate(date) {
 function showTemperature(response) {
   let temperatureElement = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#city");
-  let feelLike = Math.round(response.data.main.feels_like);
   let feelTempElement = document.querySelector("#current-feel-temp");
   let humidity = Math.round(response.data.main.humidity);
   let humidityElement = document.querySelector("#humidity");
@@ -45,10 +44,11 @@ function showTemperature(response) {
   let weatherIconElement = document.querySelector("#weather-icon");
 
   celsiusTemperature = response.data.main.temp;
+  feelLikeCelsiusTemperature = response.data.main.feels_like;
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
-  feelTempElement.innerHTML = `Feels like ${feelLike}`;
+  feelTempElement.innerHTML = `Feels like ${Math.round(response.data.main.feels_like)}`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${windSpeed}km/h`;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -86,23 +86,29 @@ function getCurrentLocation(event) {
 function changeToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temp");
+  let feelLikeElement = document.querySelector("#current-feel-temp");
 
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
 
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let feelLikeTemperature = (feelLikeCelsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  feelLikeElement.innerHTML = `Feels like ${Math.round(feelLikeTemperature)}`;
 }
 
 function changeToCelsius(event) {
-  event.preventDefault();
+  event.preventDefault(); 
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#current-temp");
+  let feelLikeElement = document.querySelector("#current-feel-temp");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  feelLikeElement.innerHTML = `Feels like ${Math.round(feelLikeCelsiusTemperature)}`;
 }
 
 let celsiusTemperature = null;
+feelLikeCelsiusTemperature = null;
 
 let date = new Date();
 currentDate(date);
