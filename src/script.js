@@ -48,7 +48,9 @@ function showTemperature(response) {
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
-  feelTempElement.innerHTML = `Feels like ${Math.round(response.data.main.feels_like)}`;
+  feelTempElement.innerHTML = `Feels like ${Math.round(
+    response.data.main.feels_like
+  )}`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${windSpeed}km/h`;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -98,13 +100,15 @@ function changeToFahrenheit(event) {
 }
 
 function changeToCelsius(event) {
-  event.preventDefault(); 
+  event.preventDefault();
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#current-temp");
   let feelLikeElement = document.querySelector("#current-feel-temp");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  feelLikeElement.innerHTML = `Feels like ${Math.round(feelLikeCelsiusTemperature)}`;
+  feelLikeElement.innerHTML = `Feels like ${Math.round(
+    feelLikeCelsiusTemperature
+  )}`;
 }
 
 let celsiusTemperature = null;
