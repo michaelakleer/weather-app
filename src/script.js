@@ -1,4 +1,6 @@
-function currentDate(date) {
+function currentDate(timestamp) {
+  let date = new Date(timestamp);
+
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
   let months = [
@@ -20,16 +22,24 @@ function currentDate(date) {
   let presentDate = date.getDate();
   let currentMonth = months[date.getMonth()];
   let currentYear = date.getFullYear();
-  let currentHour = date.getHours();
-  if (currentHour < 10) {
-    currentHour = `0${currentHour}`;
+
+  return `${currentDay}, ${currentMonth} ${presentDate}, ${currentYear} | ${currentHour(
+    timestamp
+  )}`;
+}
+
+function currentHour(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
   }
-  let currentMinutes = date.getMinutes();
-  if (currentMinutes < 10) {
-    currentMinutes = `0${currentMinutes}`;
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
   }
-  let showDate = document.querySelector("#date");
-  showDate.innerHTML = `${currentDay}, ${currentMonth} ${presentDate}, ${currentYear} | ${currentHour}:${currentMinutes}`;
+
+  return `${hour}:${minutes}`;
 }
 
 function showTemperature(response) {
@@ -41,6 +51,7 @@ function showTemperature(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#wind-speed");
   let descriptionElement = document.querySelector("#weather-description");
+  let dateElement = document.querySelector("#date");
   let weatherIconElement = document.querySelector("#weather-icon");
 
   celsiusTemperature = response.data.main.temp;
@@ -54,6 +65,7 @@ function showTemperature(response) {
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${windSpeed}km/h`;
   descriptionElement.innerHTML = response.data.weather[0].description;
+  dateElement.innerHTML = currentDate(response.data.dt * 1000);
   weatherIconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -62,22 +74,24 @@ function showTemperature(response) {
 }
 
 function showForecast(response) {
-  console.log(response);
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
 
   for (let index = 0; index < 5; index++) {
     forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-    <div class="col-3 friday">
-      <h3>12:00</h3>
+    forecastElement.innerHTML += `<div class="col-3">
+      <h3>${currentHour(forecast.dt * 1000)}</h3>
       <img
-        src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+        src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"
       />
-      <strong> 33°C </strong>
+      <div>
+      <strong> ${Math.round(forecast.main.temp_max)}° </strong>
       <br />
-      <small> 27°C </small>
+      ${Math.round(forecast.main.temp_min)}°
+      </div>
     </div>`;
   }
 }
@@ -137,9 +151,6 @@ function changeToCelsius(event) {
 
 let celsiusTemperature = null;
 feelLikeCelsiusTemperature = null;
-
-let date = new Date();
-currentDate(date);
 
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", handleSubmit);

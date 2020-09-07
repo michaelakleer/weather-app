@@ -109,14 +109,17 @@ li:first-letter {
   margin-top: 40px;
 }
 
-.friday,
-.saturday,
-.sunday,
-.monday,
-.tuesday {
+.forecast {
   text-align: center;
-  padding: 0 15px 5px;
   font-family: "Open Sans", sans-serif;
+}
+
+.forecast img {
+    display: block;
+    margin: 0 auto;
+    height: 48px;
+    width: 48px;
+  }
 }
 
 .weather-description {
