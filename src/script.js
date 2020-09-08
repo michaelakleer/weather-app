@@ -80,9 +80,9 @@ function showForecast(response) {
   let forecast = null;
 
   for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
     forecastMaxCelsiusTemp = response.data.list[index].main.temp_max;
     forecastMinCelsiusTemp = response.data.list[index].main.temp_min;
-    forecast = response.data.list[index];
 
     forecastElement.innerHTML += `<div class="col-2">
       <h3>${currentHour(forecast.dt * 1000)}</h3>
