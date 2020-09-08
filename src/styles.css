@@ -65,9 +65,9 @@ li:first-letter {
   text-align: center;
   margin: 25px auto;
   padding: 5px 2px;
-  border: 1px solid #616161;
-  border-radius: 4px;
-  background: rgba(255, 175, 189, 0.3)
+  border: 1px none #616161;
+  border-radius: 15px;
+  background: #ffc3a0;
 }
 
 
