@@ -78,9 +78,9 @@ function showForecast(response) {
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  for (let index = 0; index < 5; index++) {
+  for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
-    forecastElement.innerHTML += `<div class="col-3">
+    forecastElement.innerHTML += `<div class="col-2">
       <h3>${currentHour(forecast.dt * 1000)}</h3>
       <img
         src="http://openweathermap.org/img/wn/${
@@ -89,7 +89,7 @@ function showForecast(response) {
       />
       <div>
       <strong> ${Math.round(forecast.main.temp_max)}° </strong>
-      <br />
+      |
       ${Math.round(forecast.main.temp_min)}°
       </div>
     </div>`;
