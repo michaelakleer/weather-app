@@ -152,7 +152,8 @@ margin-top: 30px;
   border: none;
   border-radius: 35px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-  padding: 20px 65px;
+  padding: 20px 65px 20px 20px;
+  text-align: left;
   
 }
 
@@ -162,7 +163,7 @@ margin-top: 30px;
   border-radius: 35px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   padding: 9px 18px;
-  text-align: center;
+ 
 }
 
 .min-temp {
