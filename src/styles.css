@@ -70,7 +70,6 @@ li:first-letter {
 
 .container {
   background-image: linear-gradient(to top, #ffc3a0 0%, #ffafbd 100%);
-  border: 2px solid #838383;
   border-radius: 8px;
   display: block;
   margin: 120px auto 0;
