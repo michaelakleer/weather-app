@@ -43,7 +43,6 @@ function currentHour(timestamp) {
 }
 
 function showTemperature(response) {
-  console.log(response);
   let temperatureElement = document.querySelector("#current-temp");
   let locationElement = document.querySelector("#location");
   let cityElement = response.data.name;
