@@ -43,8 +43,11 @@ function currentHour(timestamp) {
 }
 
 function showTemperature(response) {
+  console.log(response);
   let temperatureElement = document.querySelector("#current-temp");
-  let cityElement = document.querySelector("#city");
+  let locationElement = document.querySelector("#location");
+  let cityElement = response.data.name;
+  let countryElement = response.data.sys.country;
   let feelTempElement = document.querySelector("#current-feel-temp");
   let humidity = Math.round(response.data.main.humidity);
   let humidityElement = document.querySelector("#humidity");
@@ -58,7 +61,7 @@ function showTemperature(response) {
   feelLikeCelsiusTemperature = response.data.main.feels_like;
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  cityElement.innerHTML = response.data.name;
+  locationElement.innerHTML = `${cityElement}, ${countryElement}`;
   feelTempElement.innerHTML = `Feels like ${Math.round(
     response.data.main.feels_like
   )}`;
